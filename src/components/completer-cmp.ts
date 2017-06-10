@@ -29,7 +29,7 @@ const COMPLETER_CONTROL_VALUE_ACCESSOR = {
                 [attr.maxlength]="maxChars" [tabindex]="fieldTabindex" [disabled]="disableInput" 
                 [clearSelected]="clearSelected" [clearUnselected]="clearUnselected"
                 [overrideSuggested]="overrideSuggested" [openOnFocus]="openOnFocus" [fillHighlighted]="fillHighlighted" 
-                (blur)="onBlur()" (focus)="onFocus()" (keyup)="onKeyup($event)" (keydown)="onKeydown($event)"
+                [required] ="required"  (blur)="onBlur()" (focus)="onFocus()" (keyup)="onKeyup($event)" (keydown)="onKeydown($event)"
                 autocomplete="off" autocorrect="off" autocapitalize="off" />
 
             <div class="completer-dropdown-holder"
@@ -127,8 +127,10 @@ export class CompleterCmp implements OnInit, ControlValueAccessor, AfterViewChec
     @Input() public clearUnselected = false;
     @Input() public fillHighlighted = true;
     @Input() public placeholder = "";
+    @Input() public required = false;
     @Input() public matchClass: string;
     @Input() public fieldTabindex: number;
+
     @Input() public autoMatch = false;
     @Input() public disableInput = false;
     @Input() public inputClass: string;
